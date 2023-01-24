@@ -25,3 +25,7 @@ class testdata:
     signatory_firstname = ["testusername"]
     signatory_surname = ["testusersurname"]
     signatory_msg= "Please sign the file"
+
+    card_number = "4242424242424242"
+    card_expiry_date = "2/23"
+    card_cvc = "1234"
