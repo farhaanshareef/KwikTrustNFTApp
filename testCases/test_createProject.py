@@ -33,6 +33,7 @@ class Test_CreatePrjt(BaseTest):
         self.cp= CreateProjectPage(self.driver)
 
         for i in range(1, 3):
+            time.sleep(2)
             self.cp.clickMainprojectbtn()
             project_name = self.base_project_name + " " + str(self.project_number)
             self.cp.enterProjectname(project_name)
