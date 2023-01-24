@@ -29,3 +29,5 @@ class testdata:
     card_number = "4242424242424242"
     card_expiry_date = "2/23"
     card_cvc = "1234"
+
+    metaMask_wallet_pass= "Farhan@1234"

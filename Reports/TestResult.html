@@ -253,7 +253,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>TestResult.html</h1>
-    <p>Report generated on 24-Jan-2023 at 18:03:28 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
+    <p>Report generated on 24-Jan-2023 at 22:36:54 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.2.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -269,8 +269,8 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
         <td>Python</td>
         <td>3.11.0</td></tr></table>
     <h2>Summary</h2>
-    <p>1 tests ran in 57.67 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">1 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>1 tests ran in 36.14 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -281,12 +281,12 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <th class="sortable links" col="links">Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="passed results-table-row">
+      <tbody class="failed results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">testCases/test_addSignatory.py::Test_AddSignatory::test_Signatory[chrome]</td>
-          <td class="col-duration">57.61</td>
+          <td class="col-result">Failed</td>
+          <td class="col-name">testCases/test_StandardNFT.py::Test_StandardNFT::test_StandardNFT[chrome]</td>
+          <td class="col-duration">35.63</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody></table></body></html>
+            <div class="log">self = &lt;testCases.test_StandardNFT.Test_StandardNFT object at 0x000001E9A73DB250&gt;<br/><br/>    def test_StandardNFT(self):<br/>    <br/>        self.driver.get(self.baseURL)<br/>        self.driver.maximize_window()<br/>        self.lp= LoginPage(self.driver)<br/>        self.lp.enterEmail(self.email)<br/>        self.lp.enterPassword(self.password)<br/>        self.lp.clickLoginbtn()<br/>        self.lp.enterverificationcode(self.verification_code)<br/>        self.lp.clicksubmitbutton()<br/>        time.sleep(1)<br/>    <br/>        self.cf = CreateFolderPage(self.driver)<br/>        self.cf.selectProject()<br/>        time.sleep(1)<br/>    <br/>        self.sn= StdNFTMintingPage(self.driver)<br/>        self.sn.clickSuperNFToption()<br/>        time.sleep(1)<br/>        self.sn.clickStartbtn()<br/>        time.sleep(1)<br/>        self.sn.clickConnectBtn()<br/>        time.sleep(1)<br/>    <br/>        self.mw = MetaMaskPage(self.driver)<br/>        self.mw.openMetaMask()<br/>        self.mw.enterPassword(self.metamask_wallet_pass)<br/>&gt;       self.mw.clickUnblockBtn()<br/><br/>testCases\test_StandardNFT.py:48: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;pageObjects.MetaMask.MetaMaskPage object at 0x000001E9A73EB2D0&gt;<br/><br/>    def clickUnblockBtn(self):<br/>    <br/>&gt;       WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.CLASS_NAME,self.click_unlock_btn))).click()<br/><span class="error">E       AttributeError: &#x27;MetaMaskPage&#x27; object has no attribute &#x27;click_unlock_btn&#x27;</span><br/><br/>pageObjects\MetaMask.py:29: AttributeError<br/></div></td></tr></tbody></table></body></html>

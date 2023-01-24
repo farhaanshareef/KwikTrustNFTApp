@@ -26,6 +26,12 @@ class StdNFTMintingPage:
     def __init__(self,driver):
         self.driver= driver
 
+    def clickSuperNFToption(self):
+
+        WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.CLASS_NAME, self.click_std_NFT_option_class)))
+        standard_nft_btn = self.driver.find_elements(By.CLASS_NAME, self.click_std_NFT_option_class)
+        self.driver.execute_script('arguments[0].click()', standard_nft_btn[0])
+
     def clickStartbtn(self):
 
         start_btn= WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.XPATH,self.click_start_btn_xpath)))
