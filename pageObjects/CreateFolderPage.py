@@ -20,9 +20,10 @@ class CreateFolderPage:
 
     def selectProject(self):
 
+        i=2
         WebDriverWait(self.driver, 20).until(EC.presence_of_all_elements_located((By.CLASS_NAME,self.main_view_btn_class)))
         projectno= self.driver.find_elements(By.CLASS_NAME, self.main_view_btn_class)
-        self.driver.execute_script('arguments[0].click()', projectno[1])
+        self.driver.execute_script('arguments[0].click()', projectno[i])
 
     def selectFileOption(self):
 

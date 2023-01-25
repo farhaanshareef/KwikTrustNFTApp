@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -27,6 +29,8 @@ class MetaMaskPage:
     def clickUnblockBtn(self):
 
         WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.CLASS_NAME,self.click_unlock_btn_class))).click()
+        time.sleep(5)
+        self.driver.close()
 
     def switchWindow(self):
 

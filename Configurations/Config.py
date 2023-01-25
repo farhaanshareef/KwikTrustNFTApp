@@ -1,5 +1,6 @@
 class testdata:
     app_url= "https://develop-v2.d2ld8gf66npudc.amplifyapp.com/#/auth/login"
+    prod_app_url= "https://www.app.v2.kwiktrust.com/"
     file_uploader_email= "farhanKT@yopmail.com"
     file_uploader_password= "Farhan@1234"
     verification_code= "123456"
@@ -31,3 +32,9 @@ class testdata:
     card_cvc = "1234"
 
     metaMask_wallet_pass= "Farhan@1234"
+
+    nft_fileno = 6
+    nft_file_path = ["C://Users//cva//PycharmProjects//KwikTrustPOM//testData//StdNFT//" + str(nft_fileno) + ".jpg"]
+
+    nft_file_Name = 'My Test NFT no ' + str(nft_fileno)
+    nft_file_Description = 'My Test NFT Description'

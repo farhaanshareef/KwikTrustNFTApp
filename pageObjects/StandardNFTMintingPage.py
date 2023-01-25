@@ -9,12 +9,13 @@ class StdNFTMintingPage:
     click_start_btn_xpath= "//button[contains(text(),'Start')]"
     click_connect_btn_xpath = "//button[contains(text(),'Connect')]"
     click_std_NFT_option_class= "m-auto"
+    click_upload_file_xpath= "//button[contains(text(), '+ Upload file')]"
     click_nft__class= "image-section"
     click_mint_btn_class= "color-white"
     click_copyright_name= "copyright"
     click_next_btn_xpath= "//button[contains(text(), 'Next')]"
     click_currency_dropdown_xpath= "//span[contains(text(),'Select')]"
-    click_usd_currency_xpath = "//div[contains(text(),'USD')]"
+    click_usd_currency_xpath = "//div[@class='network-names'][normalize-space()='USD']"
     click_pay_btn_xpath= "//button[contains(text(),'PAY')]"
     switch_frame_xpath= "//iframe[@title='Secure payment input frame']"
     enter_card_number_ID = "Field-numberInput"
@@ -49,6 +50,15 @@ class StdNFTMintingPage:
 
         self.driver.execute_script('arguments[0].click()', standard_nft_btn[0])
 
+    def clickUploadFilebtn(self):
+
+        WebDriverWait(self.driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, self.click_upload_file_xpath)))
+
+        upload_file = self.driver.find_element(By.XPATH, self.click_upload_file_xpath)
+
+        self.driver.execute_script('arguments[0].click()', upload_file)
+
     def clickNFT(self):
 
         WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.CLASS_NAME, self.click_nft__class))).click()
@@ -78,16 +88,18 @@ class StdNFTMintingPage:
 
     def clickUSDCurrency(self):
 
-        usd_currency= WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.XPATH, self.click_usd_currency_xpath)))
+        WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.XPATH, self.click_usd_currency_xpath)))
+        usd_currency= self.driver.find_element(By.XPATH, self.click_usd_currency_xpath)
         self.driver.execute_script('arguments[0].click()', usd_currency)
 
     def clickPayBtn(self):
 
-        pay_btn= WebDriverWait(self.driver, 20).until(
+        WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, self.click_pay_btn_xpath)))
+        pay_btn= self.driver.find_element(By.XPATH, self.click_pay_btn_xpath)
         self.driver.execute_script('arguments[0].click()', pay_btn)
 
-    def switch_frame_stripe(self):
+    def switchframestripe(self):
 
         WebDriverWait(self.driver, 20).until(EC.presence_of_element_located((By.XPATH, self.switch_frame_xpath)))
         iframe_by_title = self.driver.find_element(By.XPATH, self.switch_frame_xpath)
@@ -100,8 +112,6 @@ class StdNFTMintingPage:
         expiry_date= self.driver.find_element(By.XPATH, self.enter_expiry_date_XPATH).send_keys(expirydate)
 
         cvc= self.driver.find_element(By.XPATH, self.enter_cvc_XPATH).send_keys(cvc)
-
-        self.driver.switch_to.default_content()
 
 
 
