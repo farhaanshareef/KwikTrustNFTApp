@@ -15,8 +15,6 @@ class Test_Login(BaseTest):
 
     def test_login(self):
 
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
         self.lp= LoginPage(self.driver)
         self.lp.enterEmail(self.email)
         self.lp.enterPassword(self.password)
@@ -24,5 +22,3 @@ class Test_Login(BaseTest):
         self.lp.enterverificationcode(self.verification_code)
         self.lp.clicksubmitbutton()
         time.sleep(2)
-
-

@@ -21,9 +21,6 @@ class Test_createFolder(BaseTest):
 
     def test_create_folder(self):
 
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
-
         self.lp= LoginPage(self.driver)
         self.lp.enterEmail(self.email)
         self.lp.enterPassword(self.password)

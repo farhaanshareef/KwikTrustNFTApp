@@ -29,9 +29,6 @@ class Test_AddSignatory(BaseTest):
 
     def test_Signatory(self):
 
-        self.driver.get(self.baseURL)
-        self.driver.maximize_window()
-
         self.lp= LoginPage(self.driver)
         self.lp.enterEmail(self.email)
         self.lp.enterPassword(self.password)
