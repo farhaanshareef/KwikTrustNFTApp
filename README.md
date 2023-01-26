@@ -1,23 +1,19 @@
-Project Name
-KwikTrust is the NFT web application where user can sign the document digitally.
+# KwikTrust
+kwiktrust is a project that allows users to upload files and add signatories to them. The project utilizes Selenium and Python scripts to automate the process.
 
-Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+Features
+File upload
+Adding signatories
+Signing of files
+Minting of standard and super NFTs
+Transfer of minted NFTs to any Hyperledger wallet address using KTX crypto and USD stripe payment
+Installation
+To use kwiktrust, you'll need to have Python and Selenium installed on your computer. You can download the latest version of Python from the official website here and Selenium can be installed via pip by running pip install selenium.
 
-Prerequisites
-Selenium
-Python 3.x
+You will also need to install the following python packages
 
-Installing
-Clone the repository
-
-Install the required packages
-
-Run the script
-
-Running the tests
-The script will run and create projects on the website with the provided project name, logo, and email/password credentials.
-
-Built With
-Selenium - The web framework used
-Python - The programming language used
+web3
+pycryptodome
+stripe
+Usage
+To use kwiktrust, simply run the script and follow the prompts. You will be asked to upload a file, add signatories, and complete the signing process. Once the signing process is complete, you will be able to mint standard and super NFTs and transfer them to any Hyperledger wallet address using KTX crypto and USD stripe payment.
