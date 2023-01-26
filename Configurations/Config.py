@@ -4,7 +4,7 @@ class testdata:
     file_uploader_email= "farhanKT@yopmail.com"
     file_uploader_password= "Farhan@1234"
     verification_code= "123456"
-    signatory_email= "test@yopmail.com"
+    signatory_email= "FarhanKT2@yopmail.com"
     signatory_password= "Farhan@1234"
     project_error_msg = "Project already exists"
     folder_error_msg= "Folder already exists"
