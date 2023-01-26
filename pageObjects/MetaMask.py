@@ -10,6 +10,7 @@ class MetaMaskPage:
 
     enter_password_field_ID= "password"
     click_unlock_btn_class= "btn-default"
+    click_confirm_btn_css= ".btn--rounded.btn-primary"
 
     def __init__(self,driver):
         self.driver= driver
@@ -35,3 +36,12 @@ class MetaMaskPage:
     def switchWindow(self):
 
         self.driver.switch_to.window(self.driver.window_handles[0])
+
+    def clickConfirmBtn(self):
+
+        WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, self.click_confirm_btn_css)))
+
+        # click on the next button in MetaMask
+        next_btn = self.driver.find_element(By.CSS_SELECTOR, self.click_confirm_btn_css)
+
+        self.driver.execute_script('arguments[0].click()', next_btn)

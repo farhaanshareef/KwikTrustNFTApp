@@ -12,7 +12,7 @@ class testdata:
     l=1
     projectlogo = ["C://Users//cva//PycharmProjects//KwikTrustPOM//testData//logoImages//" + str(l) + ".png"]
     base_project_name = "KwikTrust KT Project no"
-    project_number = 1
+    project_number = 2
     base_folder_name= "Test Folder no"
     folder_number= 30
 
@@ -33,8 +33,8 @@ class testdata:
 
     metaMask_wallet_pass= "Farhan@1234"
 
-    nft_fileno = 6
-    nft_file_path = ["C://Users//cva//PycharmProjects//KwikTrustPOM//testData//StdNFT//" + str(nft_fileno) + ".jpg"]
+    nft_fileno = 10
+    nft_file_path = ["C://Users//cva//PycharmProjects//KwikTrustPOM//testData//StdNFT//" + str(nft_fileno) + ".pdf"]
 
     nft_file_Name = 'My Test NFT no ' + str(nft_fileno)
     nft_file_Description = 'My Test NFT Description'

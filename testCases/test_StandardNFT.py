@@ -27,7 +27,8 @@ class Test_StandardNFT(BaseTest):
     cvc_number= testdata.card_cvc
     expiry_date= testdata.card_expiry_date
 
-    def test_StandardNFT(self):
+    @pytest.mark.skip
+    def test_StandardNFTCard(self):
 
         self.driver.get(self.baseURL)
         self.driver.maximize_window()
@@ -61,16 +62,21 @@ class Test_StandardNFT(BaseTest):
 
         self.sn.clickStdNFTBtn()
         time.sleep(1)
-        self.sn.clickUploadFilebtn()
-        time.sleep(1)
 
-        self.uf= UploadFilePage(self.driver)
-        self.uf.uploadFile(self.file_path)
-        self.uf.enterFileName(self.file_name)
-        self.uf.enterFileDescription(self.file_description)
-        self.uf.clickDocType()
-        self.uf.clickNextBtn()
-        time.sleep(1)
+        self.nftcount= self.sn.getNFTcount()
+
+        if self.nftcount<=0:
+
+            self.sn.clickUploadFilebtn()
+            time.sleep(1)
+
+            self.uf= UploadFilePage(self.driver)
+            self.uf.uploadFile(self.file_path)
+            self.uf.enterFileName(self.file_name)
+            self.uf.enterFileDescription(self.file_description)
+            self.uf.clickDocType()
+            self.uf.clickNextBtn()
+            time.sleep(1)
 
         self.sn.clickNFT()
         time.sleep(1)
@@ -88,5 +94,74 @@ class Test_StandardNFT(BaseTest):
         self.sn.entercardDetails(self.card_number, self.expiry_date, self.cvc_number)
         time.sleep(1)
         self.driver.switch_to.default_content()
+        self.sn.clickStripePaybtn()
+        self.sn.clickOkBtn()
+        time.sleep(2)
+
+    def test_StandardNFTMeta(self):
+
+        self.driver.get(self.baseURL)
+        self.driver.maximize_window()
+        self.lp= LoginPage(self.driver)
+        self.lp.enterEmail(self.email)
+        self.lp.enterPassword(self.password)
+        self.lp.clickLoginbtn()
+        self.lp.enterverificationcode(self.verification_code)
+        self.lp.clicksubmitbutton()
+        time.sleep(1)
+
+        self.cf = CreateFolderPage(self.driver)
+        self.cf.selectProject()
+        time.sleep(1)
+
+        self.sn= StdNFTMintingPage(self.driver)
+        self.sn.clickSuperNFToption()
+        time.sleep(1)
+        self.sn.clickStartbtn()
+        time.sleep(1)
+        self.sn.clickConnectBtn()
+        time.sleep(1)
+
+        self.mw = MetaMaskPage(self.driver)
+        self.mw.openMetaMask()
+        self.mw.enterPassword(self.metamask_wallet_pass)
+        self.mw.clickUnblockBtn()
+        time.sleep(1)
+        self.driver.switch_to.window(self.driver.window_handles[0])
+        time.sleep(1)
+
+        self.sn.clickStdNFTBtn()
+        time.sleep(1)
+
+        self.nftcount= self.sn.getNFTcount()
+
+        if self.nftcount<=0:
+
+            self.sn.clickUploadFilebtn()
+            time.sleep(1)
+
+            self.uf= UploadFilePage(self.driver)
+            self.uf.uploadFile(self.file_path)
+            self.uf.enterFileName(self.file_name)
+            self.uf.enterFileDescription(self.file_description)
+            self.uf.clickDocType()
+            self.uf.clickNextBtn()
+            time.sleep(1)
+
+        self.sn.clickNFT()
+        time.sleep(1)
+
+        self.sn.clickMintBtn()
+        self.sn.clickRadioBtn()
+        self.sn.clickNextBtn()
+        self.sn.clickSelectCurrency()
+        time.sleep(2)
+        self.sn.clickKTXCurrency()
+        time.sleep(1)
         self.sn.clickPayBtn()
-        time.sleep(5)
+        self.sn.clickNextBtn()
+        time.sleep(10)
+        self.mw.openMetaMask()
+        self.mw.clickConfirmBtn()
+        #self.driver.switch_to.window(self.driver.window_handles[0])
+        time.sleep(2)

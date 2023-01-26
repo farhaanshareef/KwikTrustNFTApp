@@ -16,12 +16,14 @@ class StdNFTMintingPage:
     click_next_btn_xpath= "//button[contains(text(), 'Next')]"
     click_currency_dropdown_xpath= "//span[contains(text(),'Select')]"
     click_usd_currency_xpath = "//div[@class='network-names'][normalize-space()='USD']"
+    click_KTX_currency_xpath= "//div[@class='network-names'][normalize-space()='KTX']"
     click_pay_btn_xpath= "//button[contains(text(),'PAY')]"
     switch_frame_xpath= "//iframe[@title='Secure payment input frame']"
     enter_card_number_ID = "Field-numberInput"
     enter_expiry_date_XPATH ="//input[@placeholder='MM / YY']"
     enter_cvc_XPATH = "//input[@placeholder='CVC']"
     click_ok_btn_XPATH ="//button[@id='okButton']"
+    click_stripe_pay_btn= "//button[contains(text(),'Pay')]"
 
 
     def __init__(self,driver):
@@ -59,12 +61,25 @@ class StdNFTMintingPage:
 
         self.driver.execute_script('arguments[0].click()', upload_file)
 
+    def getNFTcount(self):
+
+        try:
+            WebDriverWait(self.driver, 10).until(EC.presence_of_all_elements_located((By.CLASS_NAME, self.click_nft__class)))
+            image = self.driver.find_elements(By.CLASS_NAME, self.click_nft__class)
+            length_nft = len(image)
+            return int(length_nft)
+
+        except:
+            return 0
+
     def clickNFT(self):
 
         WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.CLASS_NAME, self.click_nft__class))).click()
         i=0
-        image = self.driver.find_elements(By.CLASS_NAME, self.click_nft__class)
-        image[i].click()
+        while i < self.getNFTcount():
+            image = self.driver.find_elements(By.CLASS_NAME, self.click_nft__class)
+            image[i].click()
+            i += 1
 
     def clickMintBtn(self):
 
@@ -92,6 +107,12 @@ class StdNFTMintingPage:
         usd_currency= self.driver.find_element(By.XPATH, self.click_usd_currency_xpath)
         self.driver.execute_script('arguments[0].click()', usd_currency)
 
+    def clickKTXCurrency(self):
+
+        WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.XPATH, self.click_KTX_currency_xpath)))
+        KTX_currency= self.driver.find_element(By.XPATH, self.click_KTX_currency_xpath)
+        self.driver.execute_script('arguments[0].click()', KTX_currency)
+
     def clickPayBtn(self):
 
         WebDriverWait(self.driver, 20).until(
@@ -113,11 +134,18 @@ class StdNFTMintingPage:
 
         cvc= self.driver.find_element(By.XPATH, self.enter_cvc_XPATH).send_keys(cvc)
 
+    def clickStripePaybtn(self):
 
+        WebDriverWait(self.driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, self.click_stripe_pay_btn)))
+        pay_btn = self.driver.find_element(By.XPATH, self.click_stripe_pay_btn)
+        self.driver.execute_script('arguments[0].click()', pay_btn)
 
-
-
-
+    def clickOkBtn(self):
+        WebDriverWait(self.driver, 120).until(
+            EC.element_to_be_clickable((By.XPATH, self.click_ok_btn_XPATH)))
+        ok_btn = self.driver.find_element(By.XPATH, self.click_ok_btn_XPATH)
+        self.driver.execute_script('arguments[0].click()', ok_btn)
 
 
 
