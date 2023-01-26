@@ -38,3 +38,5 @@ class testdata:
 
     nft_file_Name = 'My Test NFT no ' + str(nft_fileno)
     nft_file_Description = 'My Test NFT Description'
+
+    user_hyperledger_address= "0bef2dc17a6f42f985c802d9a4e500c6cf30209c789e790d832d620976caf484"

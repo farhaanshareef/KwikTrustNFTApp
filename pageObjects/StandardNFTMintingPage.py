@@ -31,7 +31,7 @@ class StdNFTMintingPage:
 
     def clickSuperNFToption(self):
 
-        WebDriverWait(self.driver, 20).until(EC.element_to_be_clickable((By.CLASS_NAME, self.click_std_NFT_option_class)))
+        WebDriverWait(self.driver, 20).until(EC.presence_of_all_elements_located((By.CLASS_NAME, self.click_std_NFT_option_class)))
         standard_nft_btn = self.driver.find_elements(By.CLASS_NAME, self.click_std_NFT_option_class)
         self.driver.execute_script('arguments[0].click()', standard_nft_btn[0])
 
