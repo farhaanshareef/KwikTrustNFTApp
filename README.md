@@ -2,11 +2,11 @@
 KwikTrust is a project that allows users to upload files and add signatories to them. The project utilizes Selenium and Python scripts to automate the process.
 
 # Features
-File upload
-Adding signatories
-Signing of files
-Minting of standard and super NFTs
-Transfer of minted NFTs to any Hyperledger wallet address using KTX crypto and USD stripe payment
+* File upload
+* Adding signatories
+* Signing of files
+* Minting of standard and super NFTs
+* Transfer of minted NFTs to any Hyperledger wallet address using KTX crypto and USD stripe payment
 
 # Installation
 To use kwiktrust, you'll need to have Python and Selenium installed on your computer. You can download the latest version of Python from the official website and Selenium can be installed via pip by running pip install selenium.
